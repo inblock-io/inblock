@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Link from 'gatsby-link'
 import base from './base.css'
 import Container from '../components/container'
-import Navigation from '../components/navigation'
+import Header from '../components/header'
+import get from 'lodash/get'
 
 class Template extends React.Component {
   render() {
@@ -14,13 +15,43 @@ class Template extends React.Component {
       rootPath = __PATH_PREFIX__ + `/`
     }
 
+    const [siteDetails] = get(this, 'props.data.allContentfulSiteDetails.edges')
+    const menuItems = get(this, 'props.data.allContentfulMenuItems.edges')
+
     return (
-      <Container>
-        <Navigation />
-        {children()}
-      </Container>
+      <div>
+        <Header siteDetails={siteDetails.node} menuItems={menuItems}/>
+        
+          {children()}
+       
+      </div>
     )
   }
 }
 
 export default Template
+
+export const pageQuery = graphql`
+  query HeaderQuery {
+    allContentfulSiteDetails(limit:1){
+      edges{
+        node{
+          siteName
+          logo{
+            sizes(maxWidth: 130, resizingBehavior: SCALE) {
+              ...GatsbyContentfulSizes_withWebp
+            }
+          }
+        }
+      }
+    }
+    allContentfulMenuItems(skip:0){
+      edges{
+        node{
+          label
+          link
+        }
+      }
+    }
+  }
+`

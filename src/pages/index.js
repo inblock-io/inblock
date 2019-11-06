@@ -1,20 +1,36 @@
 import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
+import Introduction from '../components/introduction'
+import Services from '../components/services'
+import Container from '../components/container'
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
-
+    const [firstView] = get(this, 'props.data.allContentfulFirstView.edges')
+    const services = get(this, 'props.data.allContentfulOurServices.edges')
+    console.log(services)
     return (
-      <div style={{ background: '#fff' }}>
+      <div>
         <Helmet title={siteTitle} />
-        <Hero data={author.node} />
-        <div className="wrapper">
+        <Container>
+          <Introduction introductionInfo={firstView.node} />
+        </Container>
+        <Services services={services}/>
+
+        <Container>
+          <div>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+          </div>
+        </Container>
+        
+        {/* <div className="wrapper">
           <h2 className="section-headline">Recent articles</h2>
           <ul className="article-list">
             {posts.map(({ node }) => {
@@ -25,7 +41,7 @@ class RootIndex extends React.Component {
               )
             })}
           </ul>
-        </div>
+        </div> */}
       </div>
     )
   }
@@ -71,6 +87,34 @@ export const pageQuery = graphql`
               background: "rgb:000000"
             ) {
               ...GatsbyContentfulSizes_withWebp
+            }
+          }
+        }
+      }
+    }
+    allContentfulFirstView(limit:1){
+      edges{
+        node{
+          mainTitle
+          subtitle1
+          subtitle2
+          introductionImg {
+            sizes(resizingBehavior: SCALE) {
+             ...GatsbyContentfulSizes_withWebp
+            }
+          }
+        }
+      }
+    }
+    allContentfulOurServices(limit:3, sort: { fields: [createdAt], order: ASC}){
+      edges{
+        node{
+          title
+          descriptionLong {
+            content {
+              content {
+                value
+              }
             }
           }
         }

@@ -1,46 +1,99 @@
 @font-face {
-  font-family: "Avenir";
+  font-family: "Poppins Regular";
   font-weight: 400;
   font-style: normal;
-  src: url("/avenir-400.woff2") format("woff2");
+  src: url("/Poppinsregular.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins Medium";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/Poppinspoppins-semiboldmedium.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Impact";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/Impact.woff") format("woff");
   font-display: swap;
 }
 
 body {
-  font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+  font-family: "Poppins Regular", Arial, Helvetica, sans-serif;
   font-size: 1em;
-  line-height: 1.65;
-  color: #373F49;
-  background: #eee;
+  line-height: 1.1;
+  color: #5D5B5B;
+  background: white;
   margin: 0;
 }
-
 img {
   display: block;
   width: 100%;
 }
-
-h1,
-h2,
-h3 {
-  font-size: 2em;
-  font-weight: normal;
+p{
+  line-height: 1.5em;
 }
-
 a {
   color: currentColor;
 }
+a:hover{
+  color: #EF5402;
+}
+button:focus{
+	outline: none;
+}
+.btn-custom{
+  width: 180px;
+  padding: 12px 0px;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(156, 123, 105, 0.3);
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  background: #EF5402;
+}
+.btn-custom:hover{
+  text-decoration: none;
+  color: white;
+}
+.section-header{
+  font-size: 34px;
+  line-height: 1.2em;
+  background: url("/orange-square.jpg") no-repeat;
+  background-position: right center;
+  padding: 15px 0;
+  border-bottom: 2px solid #EF5402;
+}
+.subtitle{
+  font-size: 24px;
+  line-height: 1em;
+}
 
-.wrapper {
+@media (max-width: 1240px){
+  .section-header{
+    font-size: 28px;
+  }
+  .subtitle{
+    font-size: 20px;
+  }
+}
+@media (max-width: 576px){
+  .section-header{
+    font-size: 24px;
+  }
+}
+/* .wrapper {
   width: calc(100% - 10vmin);
   margin: 0 auto;
   padding: 5vmin 0;
-}
+} */
 
 /**
  * article grid
  */
-.article-list {
+/* .article-list {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -49,18 +102,13 @@ a {
   grid-gap: 5vmin;
 }
 
-/**
- *
- */
+
 .section-headline {
   padding: 0 0 0.4em 0;
   margin: 0 0 5vmin 0;
   border-bottom: 1px solid #ddd;
 }
 
-/**
- *
- */
 .list-inline {
   margin: 0;
   padding: 0;
@@ -69,4 +117,4 @@ a {
 
   .list-inline li {
     display: inline-block;
-  }
+  }  */

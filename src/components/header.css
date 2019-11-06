@@ -1,0 +1,12 @@
+.navbar-toggler.collapsed .navbar-toggler-icon{
+  background-image: url(/list-menu.svg);
+  height: 1em;
+  margin: .25em 0;
+  
+}
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon{
+  background-image: url(/close.svg);
+  width: 1em;
+  margin: 0.25em;
+}
+

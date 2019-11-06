@@ -1,0 +1,31 @@
+.services{
+  margin-top: -150px;
+  padding-top: 180px;
+  background: #F9F9F9;
+}
+.serviceItem{
+  margin: 50px auto;
+  border-right: 1px solid #E5E5E5;
+}
+.serviceItem:last-child{
+  border-right: none;
+}
+
+@media (max-width: 992px){
+  .serviceItem{
+    margin: 0;
+    padding: 40px 15px;
+    border-right: none;
+    border-bottom: 1px solid #E5E5E5;;
+  }
+  .serviceItem:last-child{
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 576px){
+  .services{
+    padding-top: 200px;
+    padding-bottom: 40px;
+  }
+}
