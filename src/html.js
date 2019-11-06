@@ -29,8 +29,6 @@ module.exports = class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          {this.props.headComponents}
-          {css}
           <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -42,7 +40,9 @@ module.exports = class HTML extends React.Component {
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
             crossorigin="anonymous"
           />
-          
+
+          {this.props.headComponents}
+          {css}
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
