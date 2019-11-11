@@ -7,6 +7,9 @@
   margin: 50px auto;
   border-right: 1px solid #E5E5E5;
 }
+.serviceItem h3{
+  margin-bottom: 15px;
+}
 .serviceItem:last-child{
   border-right: none;
 }

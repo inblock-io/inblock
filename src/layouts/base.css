@@ -32,11 +32,17 @@ img {
   display: block;
   width: 100%;
 }
+h1,h2,h3,h4,h5,h6{
+  font-family: "Poppins Medium", "Poppins Regular", Arial, Helvetica, sans-serif;
+}
 p{
   line-height: 1.5em;
 }
 a {
   color: #5D5B5B;
+}
+.page{
+  padding-top: 180px;
 }
 a:hover{
   color: #EF5402;
@@ -59,6 +65,7 @@ a:focus, button:focus{
   color: white;
 }
 .section-header{
+  color: #2D2D2D;
   font-size: 34px;
   line-height: 1.2em;
   background: url("/orange-square.jpg") no-repeat;
@@ -67,11 +74,23 @@ a:focus, button:focus{
   border-bottom: 2px solid #EF5402;
 }
 .subtitle{
+  color: #2D2D2D;
   font-size: 24px;
   line-height: 1em;
 }
+.read-more{
+  display: flex;
+  align-items: center;
+  padding-left: 35px;
+  background: url("/orange-square.jpg") no-repeat left center;
+  color: #EF5402;
+  text-transform: uppercase;
+}
 
 @media (max-width: 1240px){
+  .page{
+    padding-top: 160px;
+  }
   .section-header{
     font-size: 28px;
   }
@@ -80,6 +99,9 @@ a:focus, button:focus{
   }
 }
 @media (max-width: 576px){
+  .page{
+    padding-top: 120px;
+  }
   .section-header{
     font-size: 24px;
   }

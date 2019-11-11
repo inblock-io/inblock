@@ -10,7 +10,7 @@ export default ({ introductionInfo }) => (
       <p className={styles.subtitle}>{introductionInfo.subtitle2}</p>
     </div>
     <div className="col-lg-6">
-      <img className={styles.introImg} src={introductionInfo.introductionImg.sizes.srcWebp} alt=""/>
+      <img className={styles.introImg} src={introductionInfo.introductionImg.sizes.src} alt=""/>
     </div>
   </div>
 

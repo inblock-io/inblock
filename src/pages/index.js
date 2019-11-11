@@ -4,7 +4,9 @@ import Helmet from 'react-helmet'
 import ArticlePreview from '../components/article-preview'
 import Introduction from '../components/introduction'
 import Services from '../components/services'
+import FocusSection from '../components/focus'
 import Container from '../components/container'
+import Projects from '../components/projects'
 
 class RootIndex extends React.Component {
   render() {
@@ -12,7 +14,9 @@ class RootIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [firstView] = get(this, 'props.data.allContentfulFirstView.edges')
     const services = get(this, 'props.data.allContentfulOurServices.edges')
-    console.log(services)
+    const [focusInfo] = get(this, 'props.data.allContentfulFocusSection.edges')
+    const projects = get(this, 'props.data.allContentfulProject.edges')
+    console.log(projects)
     return (
       <div>
         <Helmet title={siteTitle} />
@@ -22,13 +26,17 @@ class RootIndex extends React.Component {
         <Services services={services}/>
 
         <Container>
-          <div>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-          </div>
+          <FocusSection focus={ focusInfo.node }/>
         </Container>
+
+        <Projects projects={projects}/>
+
+        <p>&nsbp;</p>
+        <p>&nsbp;</p>
+        <p>&nsbp;</p>
+        <p>&nsbp;</p>
+        <p>&nsbp;</p>
+        <p>&nsbp;</p>
         
         {/* <div className="wrapper">
           <h2 className="section-headline">Recent articles</h2>
@@ -117,6 +125,29 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    allContentfulFocusSection(limit: 1) {
+      edges {
+        node {
+          title
+          description
+          image{
+            sizes(resizingBehavior: SCALE) {
+              ...GatsbyContentfulSizes_withWebp
+            }
+          }
+        }
+      }
+    }
+    allContentfulProject(limit: 2) {
+      edges {
+        node {
+          title
+          slug
+          description
+          
         }
       }
     }
