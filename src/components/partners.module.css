@@ -1,0 +1,42 @@
+.partners{
+  background: #F9F9F9;
+  padding: 150px 0;
+}
+.titleImg{
+  max-width: 32px;
+  margin-bottom: 15px;
+}
+.title{
+  color: #2D2D2D;
+  font-weight: bold;
+  font-size: 34px;
+  margin-right: 80px;
+}
+.partnerLogo{
+  max-width: 100px;
+  margin: 5px 30px;
+}
+@media (max-width: 1240px){
+  .partners{
+    padding: 50px 15px;
+  }
+  .title{
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 992px){
+  .title{
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  .partnerLogo{
+    margin: 5px 50px 5px 0;
+  }
+}
+
+@media (max-width: 576px){
+  .title{
+    font-size: 24px
+  }
+}

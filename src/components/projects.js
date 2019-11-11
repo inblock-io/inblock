@@ -7,7 +7,7 @@ export default ({ projects }) => (
   <Container>
     <div className="row">
       <div className="col-12">
-        <h2 className="section-header">Projects</h2>
+        <h2 className="title section-header">Projects</h2>
       </div>
       {projects.map(({ node }) => {
         return (

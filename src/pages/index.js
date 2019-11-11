@@ -7,6 +7,8 @@ import Services from '../components/services'
 import FocusSection from '../components/focus'
 import Container from '../components/container'
 import Projects from '../components/projects'
+import Partners from '../components/partners'
+import MissionSection from '../components/mission'
 
 class RootIndex extends React.Component {
   render() {
@@ -16,7 +18,10 @@ class RootIndex extends React.Component {
     const services = get(this, 'props.data.allContentfulOurServices.edges')
     const [focusInfo] = get(this, 'props.data.allContentfulFocusSection.edges')
     const projects = get(this, 'props.data.allContentfulProject.edges')
-    console.log(projects)
+    const partners = get(this, 'props.data.allContentfulPartners.edges')
+    const [missionInfo] = get(this, 'props.data.allContentfulMission.edges')
+
+    console.log(missionInfo)
     return (
       <div>
         <Helmet title={siteTitle} />
@@ -26,10 +31,16 @@ class RootIndex extends React.Component {
         <Services services={services}/>
 
         <Container>
-          <FocusSection focus={ focusInfo.node }/>
+          <FocusSection focus={focusInfo.node}/>
         </Container>
 
         <Projects projects={projects}/>
+
+        <Partners partners={partners}/>
+
+        <Container>
+          <MissionSection mission={missionInfo.node}/>
+        </Container>
 
         {/* <p>&nsbp;</p>
         <p>&nsbp;</p>
@@ -68,7 +79,7 @@ export const pageQuery = graphql`
           tags
           heroImage {
             sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-             ...GatsbyContentfulSizes_withWebp
+              ...GatsbyContentfulSizes_withWebp
             }
           }
           description {
@@ -147,7 +158,41 @@ export const pageQuery = graphql`
           title
           slug
           description
-          
+        }
+      }
+    }
+    allContentfulPartners(limit: 4) {
+      edges {
+        node {
+          title
+          logo{
+            sizes(resizingBehavior: SCALE) {
+              ...GatsbyContentfulSizes_withWebp
+            }
+          }
+          link
+        }
+      }
+    }
+    allContentfulMission(limit: 1) {
+      edges {
+        node {
+          subtitle
+          title
+          descriptionHalf {
+            content{
+              content{
+                value
+              }
+            }
+          }
+          descriptionHalf2 {
+            content{
+              content{
+                value
+              }
+            }
+          }
         }
       }
     }

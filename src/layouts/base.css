@@ -65,13 +65,15 @@ a:focus, button:focus{
   color: white;
 }
 .section-header{
-  color: #2D2D2D;
-  font-size: 34px;
-  line-height: 1.2em;
   background: url("/orange-square.jpg") no-repeat;
   background-position: right center;
   padding: 15px 0;
   border-bottom: 2px solid #EF5402;
+}
+.title{
+  color: #2D2D2D;
+  font-size: 34px;
+  line-height: 1.2em;
 }
 .subtitle{
   color: #2D2D2D;
@@ -91,7 +93,7 @@ a:focus, button:focus{
   .page{
     padding-top: 160px;
   }
-  .section-header{
+  .title{
     font-size: 28px;
   }
   .subtitle{
@@ -102,7 +104,7 @@ a:focus, button:focus{
   .page{
     padding-top: 120px;
   }
-  .section-header{
+  .title{
     font-size: 24px;
   }
 }

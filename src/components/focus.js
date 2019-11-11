@@ -5,7 +5,7 @@ export default ({ focus }) => (
   <div className={`row ${styles.focus}`}>
     <div className="col-md-6 d-flex align-items-center">
       <div>
-        <h2 className={styles.title}>
+        <h2 className={`title ${styles.title}`}>
           <br className="d-md-none" />
           {focus.title}
         </h2>
