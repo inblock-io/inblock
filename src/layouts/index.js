@@ -45,7 +45,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulMenuItems(skip:0){
+    allContentfulMenuItems(sort: { fields: [createdAt], order: ASC }){
       edges{
         node{
           label

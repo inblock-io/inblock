@@ -31,12 +31,12 @@ class RootIndex extends React.Component {
 
         <Projects projects={projects}/>
 
+        {/* <p>&nsbp;</p>
         <p>&nsbp;</p>
         <p>&nsbp;</p>
         <p>&nsbp;</p>
         <p>&nsbp;</p>
-        <p>&nsbp;</p>
-        <p>&nsbp;</p>
+        <p>&nsbp;</p> */}
         
         {/* <div className="wrapper">
           <h2 className="section-headline">Recent articles</h2>
