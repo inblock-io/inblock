@@ -30,7 +30,7 @@ export default ProjectTemplate
 
 export const pageQuery = graphql`
   query ProjectBySlug($slug: String!) {
-    contentfulProject(slug: { eq: $slug }) {
+    contentfulProjects(slug: { eq: $slug }) {
       title
       description
     }

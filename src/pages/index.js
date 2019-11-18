@@ -18,7 +18,7 @@ class RootIndex extends React.Component {
     const [firstView] = get(this, 'props.data.allContentfulFirstView.edges')
     const services = get(this, 'props.data.allContentfulOurServices.edges')
     const [focusInfo] = get(this, 'props.data.allContentfulFocusSection.edges')
-    const projects = get(this, 'props.data.allContentfulProject.edges')
+    const projects = get(this, 'props.data.allContentfulProjects.edges')
     const partners = get(this, 'props.data.allContentfulPartners.edges')
     const [missionInfo] = get(this, 'props.data.allContentfulMission.edges')
     const events = get(this, 'props.data.allContentfulEvents.edges')
