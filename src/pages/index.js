@@ -119,7 +119,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulProject(limit: 2) {
+    allContentfulProjects(limit: 2) {
       edges {
         node {
           title
