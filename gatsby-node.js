@@ -19,7 +19,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 }
               }
             }
-            allContentfulProject {
+            allContentfulProjects {
               edges {
                 node {
                   title
