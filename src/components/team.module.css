@@ -1,0 +1,56 @@
+.title{
+  padding-left: 50px;
+  background: url("/3d-cube.svg") no-repeat left center;
+}
+.underTitleBlock{
+  border-left: 2px solid #EF5402;
+  height: calc( 100% - 40px );
+}
+.teamMember{
+  padding: 0 40px 80px;
+}
+.teamMember img{
+  margin-bottom: 20px;
+}
+.socialLink{
+  font-size: 30px;
+  color: #2d2d2d;
+  margin-right: 30px;
+}
+.name{
+  font-size: 20px;
+  color: #2d2d2d;
+}
+.email{
+  color: #EF5402;
+}
+
+@media (max-width: 1240px){
+  .teamMember{
+    padding: 0 15px 30px;
+  }
+}
+
+@media (max-width: 992px){
+  .title{
+    margin-bottom: 30px;
+  }
+  .teamWrapper{
+    padding: 0;
+  }
+  .teamRow {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .teamRow p{
+    white-space: normal;
+  }
+  .teamMember {
+    display: inline-block;
+    float: none;
+  }
+  .teamWrapper ::-webkit-scrollbar{
+    height: 2px;
+    background: #EF5402;
+  }
+}

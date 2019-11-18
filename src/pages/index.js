@@ -1,7 +1,6 @@
 import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import ArticlePreview from '../components/article-preview'
 import Introduction from '../components/introduction'
 import Services from '../components/services'
 import FocusSection from '../components/focus'
@@ -9,19 +8,24 @@ import Container from '../components/container'
 import Projects from '../components/projects'
 import Partners from '../components/partners'
 import MissionSection from '../components/mission'
+import Events from '../components/events'
+import Team from '../components/team'
+import Articles from '../components/articles'
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [firstView] = get(this, 'props.data.allContentfulFirstView.edges')
     const services = get(this, 'props.data.allContentfulOurServices.edges')
     const [focusInfo] = get(this, 'props.data.allContentfulFocusSection.edges')
     const projects = get(this, 'props.data.allContentfulProject.edges')
     const partners = get(this, 'props.data.allContentfulPartners.edges')
     const [missionInfo] = get(this, 'props.data.allContentfulMission.edges')
+    const events = get(this, 'props.data.allContentfulEvents.edges')
+    const teamMembers = get(this, 'props.data.allContentfulTeamMembers.edges')
+    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
-    console.log(missionInfo)
+    console.log(posts)
     return (
       <div>
         <Helmet title={siteTitle} />
@@ -38,29 +42,14 @@ class RootIndex extends React.Component {
 
         <Partners partners={partners}/>
 
-        <Container>
-          <MissionSection mission={missionInfo.node}/>
-        </Container>
-
-        {/* <p>&nsbp;</p>
-        <p>&nsbp;</p>
-        <p>&nsbp;</p>
-        <p>&nsbp;</p>
-        <p>&nsbp;</p>
-        <p>&nsbp;</p> */}
+        <MissionSection mission={missionInfo.node}/>
         
-        {/* <div className="wrapper">
-          <h2 className="section-headline">Recent articles</h2>
-          <ul className="article-list">
-            {posts.map(({ node }) => {
-              return (
-                <li key={node.slug}>
-                  <ArticlePreview article={node} />
-                </li>
-              )
-            })}
-          </ul>
-        </div> */}
+        <Events events={events}/>
+        
+        <Team teamMembers={teamMembers}/>
+
+        <Articles posts={posts} />
+
       </div>
     )
   }
@@ -70,42 +59,20 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit:4 ) {
       edges {
         node {
           title
           slug
           publishDate(formatString: "MMMM Do, YYYY")
-          tags
           heroImage {
-            sizes(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+            sizes(maxWidth: 300, maxHeight: 200, resizingBehavior: SCALE) {
               ...GatsbyContentfulSizes_withWebp
             }
           }
           description {
             childMarkdownRemark {
               html
-            }
-          }
-        }
-      }
-    }
-    allContentfulPerson(filter: { id: { eq: "c15jwOBqpxqSAOy2eOO4S0m" } }) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            sizes(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulSizes_withWebp
             }
           }
         }
@@ -193,6 +160,38 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    allContentfulEvents(limit: 1) {
+      edges {
+        node {
+          title
+          description
+          date
+          price
+          image{
+            sizes(resizingBehavior: SCALE) {
+              ...GatsbyContentfulSizes_withWebp
+            }
+          }
+        }
+      }
+    }
+    allContentfulTeamMembers(limit: 4) {
+      edges {
+        node {
+          name
+          photo{
+            sizes(resizingBehavior: SCALE) {
+              ...GatsbyContentfulSizes_withWebp
+            }
+          }
+          position
+          about
+          email
+          facebook
+          linkedin
         }
       }
     }

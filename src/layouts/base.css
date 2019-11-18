@@ -51,6 +51,7 @@ a:focus, button:focus{
 	outline: none;
 }
 .btn-custom{
+  display: block;
   width: 180px;
   padding: 12px 0px;
   border-radius: 2px;
@@ -64,6 +65,13 @@ a:focus, button:focus{
   text-decoration: none;
   color: white;
 }
+.btn-custom-light,.btn-custom-light:hover{
+  background: transparent;
+  border: 1px solid #D4D2D2 ;
+  color: #EF5402;
+  box-shadow: none;
+}
+
 .section-header{
   background: url("/orange-square.jpg") no-repeat;
   background-position: right center;

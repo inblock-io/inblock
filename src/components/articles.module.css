@@ -1,0 +1,42 @@
+.blogSection{
+  padding: 80px 0;
+}
+.title{
+  margin-bottom: 50px;
+}
+.postsWrapper{
+  padding: 0;
+}
+.post{
+  margin-bottom: 50px;
+}
+@media (max-width: 1240px){
+  .blogSection{
+    padding: 50px 0;
+  }
+  .title{
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 992px){
+  .postsWrapper{
+    padding: 0;
+  }
+  .postsRow {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .postsRow *{
+    white-space: normal;
+  }
+  .post {
+    display: inline-block;
+    float: none;
+    margin-bottom: 30px;
+  }
+  .postsWrapper ::-webkit-scrollbar{
+    height: 1px;
+    background: transparent;
+  }
+}

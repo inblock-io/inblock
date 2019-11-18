@@ -17,7 +17,7 @@ class Template extends React.Component {
 
     const [siteDetails] = get(this, 'props.data.allContentfulSiteDetails.edges')
     const menuItems = get(this, 'props.data.allContentfulMenuItems.edges')
-
+    console.log(siteDetails)
     return (
       <div>
         <Header siteDetails={siteDetails.node} menuItems={menuItems}/>
