@@ -19,7 +19,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 }
               }
             }
-            allContentfulProjects {
+            allContentfulProject {
               edges {
                 node {
                   title
@@ -46,7 +46,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           })
         })
 
-        const projects = result.data.allContentfulProject.edges
+        const projects = result.data.allContentfulProjects.edges
         projects.forEach((project, index) => {
           createPage({
             path: `/projects/${project.node.slug}/`,
