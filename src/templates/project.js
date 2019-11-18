@@ -5,7 +5,7 @@ import Container from '../components/container'
 
 class ProjectTemplate extends React.Component {
   render() {
-    const project = get(this.props, 'data.contentfulProject')
+    const project = get(this.props, 'data.contentfulProjects')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
