@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import base from './base.css'
 import Container from '../components/container'
 import Header from '../components/header'
+import Footer from '../components/footer'
 import get from 'lodash/get'
 
 class Template extends React.Component {
@@ -17,13 +18,22 @@ class Template extends React.Component {
 
     const [siteDetails] = get(this, 'props.data.allContentfulSiteDetails.edges')
     const menuItems = get(this, 'props.data.allContentfulMenuItems.edges')
-    console.log(siteDetails)
+    const socialLinks = get(this, 'props.data.allContentfulSocials.edges')
+    const footerStaticPages = get(this, 'props.data.allContentfulFooterStaticPages.edges')
+
     return (
       <div>
-        <Header siteDetails={siteDetails.node} menuItems={menuItems}/>
+        <Header 
+          siteDetails={siteDetails.node} 
+          menuItems={menuItems}
+          socialLinks={socialLinks}/>
         
           {children()}
-       
+        
+        <Footer 
+          siteDetails={siteDetails.node}
+          socialLinks={socialLinks}
+          staticPages={footerStaticPages}/>
       </div>
     )
   }
@@ -37,8 +47,13 @@ export const pageQuery = graphql`
       edges{
         node{
           siteName
-          logo{
+          logoDark{
             sizes(maxWidth: 130, resizingBehavior: SCALE) {
+              ...GatsbyContentfulSizes_withWebp
+            }
+          }
+          logoLight{
+            sizes(maxWidth: 180, resizingBehavior: SCALE) {
               ...GatsbyContentfulSizes_withWebp
             }
           }
@@ -50,6 +65,22 @@ export const pageQuery = graphql`
         node{
           label
           link
+        }
+      }
+    }
+    allContentfulSocials{
+      edges{
+        node{
+          socialNetwork
+          link
+        }
+      }
+    }
+    allContentfulFooterStaticPages {
+      edges {
+        node {
+          title
+          slug
         }
       }
     }

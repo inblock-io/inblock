@@ -42,7 +42,11 @@ a {
   color: #5D5B5B;
 }
 .page{
-  padding-top: 180px;
+  padding: 100px 0 50px;
+}
+.anchor{
+  position: relative;
+  top: -90px;
 }
 a:hover{
   color: #EF5402;
@@ -98,8 +102,11 @@ a:focus, button:focus{
 }
 
 @media (max-width: 1240px){
+  .anchor{
+    top: -70px;
+  }
   .page{
-    padding-top: 160px;
+    padding-top: 80px;
   }
   .title{
     font-size: 28px;
@@ -109,9 +116,6 @@ a:focus, button:focus{
   }
 }
 @media (max-width: 576px){
-  .page{
-    padding-top: 120px;
-  }
   .title{
     font-size: 24px;
   }

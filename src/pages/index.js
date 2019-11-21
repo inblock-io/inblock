@@ -11,6 +11,7 @@ import MissionSection from '../components/mission'
 import Events from '../components/events'
 import Team from '../components/team'
 import Articles from '../components/articles'
+import ContactSection from '../components/contact'
 
 class RootIndex extends React.Component {
   render() {
@@ -24,14 +25,16 @@ class RootIndex extends React.Component {
     const events = get(this, 'props.data.allContentfulEvents.edges')
     const teamMembers = get(this, 'props.data.allContentfulTeamMembers.edges')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const [contactSection] = get(this, 'props.data.allContentfulContactSection.edges')
 
-    console.log(posts)
     return (
       <div>
         <Helmet title={siteTitle} />
         <Container>
           <Introduction introductionInfo={firstView.node} />
         </Container>
+
+        <a className="anchor" id="services"></a>
         <Services services={services}/>
 
         <Container>
@@ -46,9 +49,13 @@ class RootIndex extends React.Component {
         
         <Events events={events}/>
         
+        <a className="anchor" id="team"></a>
         <Team teamMembers={teamMembers}/>
 
         <Articles posts={posts} />
+
+        <a className="anchor" id="contact"></a>
+        <ContactSection contact={contactSection.node} />
 
       </div>
     )
@@ -192,6 +199,20 @@ export const pageQuery = graphql`
           email
           facebook
           linkedin
+        }
+      }
+    }
+    allContentfulContactSection(limit: 1) {
+      edges {
+        node {
+          title
+          subtitle
+          buttonText
+          icon{
+            sizes(resizingBehavior: SCALE) {
+              ...GatsbyContentfulSizes_withWebp
+            }
+          }
         }
       }
     }

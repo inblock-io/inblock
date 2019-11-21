@@ -7,6 +7,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
     const projectTemplate = path.resolve('./src/templates/project.js')
+    const footerStaticPageTemplate = path.resolve('./src/templates/footer-static-page.js')
     resolve(
       graphql(
         `
@@ -20,6 +21,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               }
             }
             allContentfulProjects {
+              edges {
+                node {
+                  title
+                  slug
+                }
+              }
+            }
+            allContentfulFooterStaticPages {
               edges {
                 node {
                   title
@@ -53,6 +62,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             component: projectTemplate,
             context: {
               slug: project.node.slug
+            },
+          })
+        })
+
+        const footerStaticPages = result.data.allContentfulFooterStaticPages.edges
+        footerStaticPages.forEach((page, index) => {
+          createPage({
+            path: `/${page.node.slug}/`,
+            component: footerStaticPageTemplate,
+            context: {
+              slug: page.node.slug
             },
           })
         })

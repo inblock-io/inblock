@@ -4,12 +4,14 @@ import Container from '../components/container'
 import styles from './header.module.css'
 import header from './header.css'
 
-export default ({ siteDetails, menuItems }) => (
+export default ({ siteDetails, menuItems, socialLinks }) => (
   <header className={styles.header}>
     <Container>
       <nav className={`navbar navbar-expand-lg ${styles.navbar}`}>
-        <img className={styles.logo} src={siteDetails.logo.sizes.src} alt={siteDetails.siteName}/>
-        
+        <Link to={"/"}>
+          <img className={styles.logo} src={siteDetails.logoDark.sizes.src} alt={siteDetails.siteName}/>
+        </Link>
+
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false">
           <span className={`navbar-toggler-icon ${styles.navigationIcon}`}></span>
         </button>
@@ -17,18 +19,46 @@ export default ({ siteDetails, menuItems }) => (
           <ul className="navbar-nav mr-auto">
             {menuItems.map(({ node }) => {
                 return (
-                  <li key={node.label} className={`nav-item ${styles.navigationItem}`}>
-                    <Link className="nav-link" to={node.link}>{node.label}</Link>
+                  <li key={node.label} className={`nav-item ${styles.navigationItem}`} data-toggle="collapse" data-target=".navbar-collapse.show">
+                    <Link className="nav-link" to={node.link} >{node.label}</Link>
                   </li>
                 )
               })}
           </ul>
-          <Link className={`btn-custom ${styles.btnContact}`} to="">CONTACT</Link>
+          <span data-toggle="collapse" data-target=".navbar-collapse.show">
+            <Link className={`btn-custom ${styles.btnContact}`} to="/#contact">
+              CONTACT
+            </Link>
+          </span>
           <div className={`d-lg-none ${styles.social}`}>
-            <a href="#"><i className="fab fa-youtube"></i></a>
-            <a href="#"><i className="fab fa-facebook-square"></i></a>
-            <a href="#"><i className="fab fa-linkedin"></i></a>
-            <a href="#"><i className="fab fa-twitter-square"></i></a>
+            {socialLinks.map(({ node }) => {
+              if(node.link!==null){
+                if(node.socialNetwork==="facebook"){
+                  return (
+                    <a href={node.link} target="_blank">
+                      <i className="fab fa-facebook-square"></i>
+                    </a>)
+                }
+                if(node.socialNetwork==="youtube"){
+                  return (
+                    <a href={node.link} target="_blank">
+                      <i className="fab fa-youtube"></i>
+                    </a>)
+                }
+                if(node.socialNetwork==="linkedin"){
+                  return (
+                    <a href={node.link} target="_blank">
+                      <i className="fab fa-linkedin"></i>
+                    </a>)
+                }
+                if(node.socialNetwork==="twitter"){
+                  return (
+                    <a href={node.link} target="_blank">
+                      <i className="fab fa-twitter-square"></i>
+                    </a>)
+                }
+              }
+            })}
           </div>
         </div>
       </nav>

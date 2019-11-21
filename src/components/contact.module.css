@@ -1,0 +1,32 @@
+.contact{
+  background: #F9F9F9;
+  padding: 60px 0 100px;
+}
+.title{
+  font-family: "Impact", Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
+}
+.subtitle{
+  margin-bottom: 30px;
+}
+.icon{
+  max-width: 170px;
+}
+
+@media (max-width: 1240px){
+  .contact{
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 767px){
+  .title, .subtitle{
+    margin-bottom: 20px;
+  }
+  .btnContact{
+    margin-bottom: 30px;
+  }
+  .icon{
+    max-width: 100px;
+  }
+}
