@@ -57,6 +57,9 @@ class RootIndex extends React.Component {
         <a className="anchor" id="contact"></a>
         <ContactSection contact={contactSection.node} />
 
+        
+        {/* <a className="twitter-timeline" data-height="600" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/inblockio?ref_src=twsrc%5Etfw">Tweets by inblockio</a>  */}
+        
       </div>
     )
   }
@@ -132,6 +135,11 @@ export const pageQuery = graphql`
           title
           slug
           description
+          icon {
+            sizes(resizingBehavior: SCALE) {
+              ...GatsbyContentfulSizes_withWebp
+            }
+          }
         }
       }
     }
@@ -174,6 +182,7 @@ export const pageQuery = graphql`
       edges {
         node {
           title
+          slug
           description
           date
           price

@@ -8,6 +8,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
     const projectTemplate = path.resolve('./src/templates/project.js')
     const footerStaticPageTemplate = path.resolve('./src/templates/footer-static-page.js')
+    const eventTemplate = path.resolve('./src/templates/event.js')
     resolve(
       graphql(
         `
@@ -21,6 +22,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               }
             }
             allContentfulProjects {
+              edges {
+                node {
+                  title
+                  slug
+                }
+              }
+            }
+            allContentfulEvents {
               edges {
                 node {
                   title
@@ -62,6 +71,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             component: projectTemplate,
             context: {
               slug: project.node.slug
+            },
+          })
+        })
+
+        const events = result.data.allContentfulEvents.edges
+        events.forEach((event, index) => {
+          createPage({
+            path: `/events/${event.node.slug}/`,
+            component: eventTemplate,
+            context: {
+              slug: event.node.slug
             },
           })
         })

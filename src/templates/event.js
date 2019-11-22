@@ -5,20 +5,18 @@ import Container from '../components/container'
 
 class ProjectTemplate extends React.Component {
   render() {
-    const project = get(this.props, 'data.contentfulProjects')
+    const event = get(this.props, 'data.contentfulEvents')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
       <div className="page">
         <Container >
-          <Helmet title={`${project.title} | ${siteTitle}`} />
-          <h1 className="title">{project.title}</h1>
-          {/* <img src={project.icon.sizes.src} alt="" /> */}
-          <div
-            dangerouslySetInnerHTML={{
-              __html: project.body.childMarkdownRemark.html,
-            }}
-          />
+          <Helmet title={`${event.title} | ${siteTitle}`} />
+          <h1 className="title">{event.title}</h1>
+          <img src={event.image.sizes.src} alt="" />
+          <p>{new Date(event.date).toDateString()}</p>
+          <p>{event.price}</p>
+          <p>{event.description}</p>
         </Container>
       </div>
     )
@@ -28,20 +26,17 @@ class ProjectTemplate extends React.Component {
 export default ProjectTemplate
 
 export const pageQuery = graphql`
-  query ProjectBySlug($slug: String!) {
-    contentfulProjects(slug: { eq: $slug }) {
+  query EventBySlug($slug: String!) {
+    contentfulEvents(slug: { eq: $slug }) {
       title
       description
-      icon {
+      image {
         sizes(resizingBehavior: SCALE) {
           ...GatsbyContentfulSizes_withWebp
         }
       }
-      body {
-        childMarkdownRemark {
-          html
-        }
-      }
+      date
+      price
     }
   }
 `

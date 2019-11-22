@@ -15,7 +15,7 @@ export default ({ projects }) => (
             <div className={`d-flex flex-column ${styles.project}`}>
               <p className={styles.projectDescription}>{node.description}</p>
               <div className="d-flex">
-                <img className={styles.projectImg} src="/project.png" alt="" />
+                <img className={styles.projectImg} src={node.icon.sizes.src} alt="" />
                 <Link className="read-more ml-auto" to={`/projects/${node.slug}`}>Read more</Link>
               </div>
             </div>
