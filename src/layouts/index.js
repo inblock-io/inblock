@@ -5,6 +5,7 @@ import Container from '../components/container'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import get from 'lodash/get'
+import ReactGA from 'react-ga';
 
 class Template extends React.Component {
   render() {
@@ -20,6 +21,10 @@ class Template extends React.Component {
     const menuItems = get(this, 'props.data.allContentfulMenuItems.edges')
     const socialLinks = get(this, 'props.data.allContentfulSocials.edges')
     const footerStaticPages = get(this, 'props.data.allContentfulFooterStaticPages.edges')
+
+    
+    ReactGA.initialize('UA-153630630-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
 
     return (
       <div>
