@@ -6,6 +6,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js')
+    const serviceTemplate = path.resolve('./src/templates/service.js')
     const projectTemplate = path.resolve('./src/templates/project.js')
     const footerStaticPageTemplate = path.resolve('./src/templates/footer-static-page.js')
     const eventTemplate = path.resolve('./src/templates/event.js')
@@ -14,6 +15,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         `
           {
             allContentfulBlogPost {
+              edges {
+                node {
+                  title
+                  slug
+                }
+              }
+            }
+            allContentfulOurServices {
               edges {
                 node {
                   title
@@ -60,6 +69,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             component: blogPost,
             context: {
               slug: post.node.slug
+            },
+          })
+        })
+
+        const services = result.data.allContentfulOurServices.edges
+        services.forEach((service, index) => {
+          createPage({
+            path: `/services/${service.node.slug}/`,
+            component: serviceTemplate,
+            context: {
+              slug: service.node.slug
             },
           })
         })

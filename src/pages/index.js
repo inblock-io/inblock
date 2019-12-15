@@ -34,30 +34,30 @@ class RootIndex extends React.Component {
           <Introduction introductionInfo={firstView.node} />
         </Container>
 
+        <MissionSection mission={missionInfo.node}/>
+
         <a className="anchor" id="services"></a>
         <Services services={services}/>
 
-        <Container>
+        {/* <Container>
           <FocusSection focus={focusInfo.node}/>
-        </Container>
+        </Container> */}
 
         <Projects projects={projects}/>
 
+        <Events events={events}/>
+
         <Partners partners={partners}/>
 
-        <MissionSection mission={missionInfo.node}/>
         
-        <Events events={events}/>
         
-        <a className="anchor" id="team"></a>
-        <Team teamMembers={teamMembers}/>
-
-        <Articles posts={posts} />
+        {/* <a className="anchor" id="team"></a>
+        <Team teamMembers={teamMembers}/> */}
 
         <a className="anchor" id="contact"></a>
         <ContactSection contact={contactSection.node} />
 
-        
+        <Articles posts={posts} />
         {/* <a className="twitter-timeline" data-height="600" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/inblockio?ref_src=twsrc%5Etfw">Tweets by inblockio</a>  */}
         
       </div>
@@ -106,6 +106,8 @@ export const pageQuery = graphql`
       edges{
         node{
           title
+          slug
+          
           descriptionLong {
             content {
               content {

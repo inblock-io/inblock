@@ -95,6 +95,7 @@ a:focus, button:focus{
 .read-more{
   display: flex;
   align-items: center;
+  min-height: 25px;
   padding-left: 35px;
   background: url("/orange-square.jpg") no-repeat left center;
   color: #EF5402;

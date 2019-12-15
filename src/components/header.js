@@ -16,7 +16,7 @@ export default ({ siteDetails, menuItems, socialLinks }) => (
           <span className={`navbar-toggler-icon ${styles.navigationIcon}`}></span>
         </button>
         <div className="collapse navbar-collapse" id="navbar">
-          <ul className="navbar-nav mr-auto">
+          <ul className="navbar-nav ml-auto">
             {menuItems.map(({ node }) => {
                 return (
                   <li key={node.label} className={`nav-item ${styles.navigationItem}`} data-toggle="collapse" data-target=".navbar-collapse.show">
