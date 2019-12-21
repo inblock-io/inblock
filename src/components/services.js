@@ -14,7 +14,7 @@ export default ({ services }) => (
           return (
             <div className={`col-lg-4 ${styles.serviceItem}`} key={node.title}>
               <h3 className="subtitle">{node.title}</h3>
-              <p>{node.descriptionLong.content[0].content[0].value}</p>
+              <p className="mb-1">{node.descriptionLong.content[0].content[0].value}</p>
               <Link className="read-more ml-auto" to={`/services/${node.slug}`}>Read more</Link>
             </div>
           )

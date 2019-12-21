@@ -1,0 +1,50 @@
+.videoDescription{
+  background: #F9F9F9;
+  margin: 50px 0;
+  padding: 40px 40px 25px 40px;
+}
+.videoDescription p{
+  margin-bottom: auto;
+}
+.videoCarousel{
+  width: 100%;
+  margin-bottom: 50px;
+}
+.video{
+  width: 100%;
+  max-height: 500px;
+}
+.videoCarousel a{
+  top: 40%;
+  height: 20%;
+}
+.carouselPrevIcon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#EF5402' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+}
+.carouselNextIcon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#EF5402' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+}
+@media (max-width: 767px){
+  .videoDescription{
+    margin: 50px 0 0 0;
+  }
+  .videoCarousel{
+    margin: 50px 0;
+  }
+  .video{
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 576px){
+  .videoDescriptio{
+    margin: 30px 0 0 0;
+    padding: 30px 15px;
+  }
+  .videoCarousel{
+    margin: 30px 0;
+  }
+  .video{
+    max-height: 300px;
+  }
+}

@@ -14,7 +14,7 @@ export default ({ events }) => (
     {events.map(({ node }) => <EventPreview event={node} />)}
     <div className="row">
       <div className="col-12">
-        <Link className={`btn-custom btn-custom-light ${styles.btnMore}`} to="">See past events</Link>
+        <Link className={`btn-custom btn-custom-light ${styles.btnMore}`} to="/events">See Previous Events List</Link>
       </div>
     </div>
   </Container>

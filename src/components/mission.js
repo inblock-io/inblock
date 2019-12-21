@@ -6,8 +6,9 @@ export default ({ mission }) => (
   <Container>
     <div className={`row ${styles.mission}`}>
       <div className="col-12">
-        {/* <p className={styles.subtitle}>{mission.subtitle}</p>
-        <h2 className={`title ${styles.title}`} >{mission.title}</h2> */}
+        {/* <p className={styles.subtitle}>{mission.subtitle}</p> 
+        <h2 className={`title ${styles.title}`} >{mission.title}</h2>*/ }
+        <h2 className={`subtitle ${styles.subtitle}`} >{mission.title}</h2>
       </div>
       
 

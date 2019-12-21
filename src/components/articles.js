@@ -25,7 +25,7 @@ export default ({ posts }) =>(
         </div>
       </div>
       
-      <Link className="btn-custom btn-custom-light mx-lg-auto" to="">more posts</Link>
+      <Link className="btn-custom btn-custom-light mx-lg-auto" to="/blog">more posts</Link>
       
     </div>
   </Container>

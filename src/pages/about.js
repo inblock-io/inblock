@@ -1,6 +1,8 @@
 import React from 'react'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import Link from 'gatsby-link'
+import Container from '../components/container'
 import Events from '../components/events'
 import Team from '../components/team'
 
@@ -16,6 +18,12 @@ class About extends React.Component {
         
         <Team teamMembers={teamMembers}/>
         
+        <Container>
+          <Link className={`btn-custom mx-auto mt-3`} to="/legal">
+            Legal
+          </Link>
+        </Container>
+      
         {/* <Events events={events}/> */}
       </div>
     )

@@ -10,23 +10,13 @@ export default ({ event }) => {
         className={`col-lg-3 ${styles.eventImg}`}>
       </div>
       <div className={`col-lg-9 ${styles.eventInfo}`}>
-        <div className="row">
-          <div className="col-md-8">
-            <p className={styles.date}>{new Date(event.date).toDateString() }</p>
-            <h3>
-              <Link className={`subtitle ${styles.title}`} to={`/events/${event.slug}`}>
-                {event.title}
-              </Link>
-            </h3>
-            <p>{event.description}</p>
-          </div>
-          <div className={`col-md-4 ${styles.priceWrapper}`}>
-            <p>
-              <span className={styles.priceTitle}>Participation fee:</span><br />
-              <span className={styles.price}>{event.price}</span>
-            </p>
-          </div>
-        </div>
+        <p className={styles.date}>{new Date(event.date).toDateString() }</p>
+        <h3>
+          <Link className={`subtitle ${styles.title}`} to={`/events/${event.slug}`}>
+            {event.title}
+          </Link>
+        </h3>
+        <p>{event.description}</p>
       </div>
     </div>
 )}

@@ -12,6 +12,7 @@ import Events from '../components/events'
 import Team from '../components/team'
 import Articles from '../components/articles'
 import ContactSection from '../components/contact'
+import VideoSection from '../components/videos'
 
 class RootIndex extends React.Component {
   render() {
@@ -20,12 +21,16 @@ class RootIndex extends React.Component {
     const services = get(this, 'props.data.allContentfulOurServices.edges')
     const [focusInfo] = get(this, 'props.data.allContentfulFocusSection.edges')
     const projects = get(this, 'props.data.allContentfulProjects.edges')
+    const videoDescription = get(this, 'props.data.allContentfulVideoDescription.edges')
+    const videos = get(this, 'props.data.allContentfulVideos.edges')
     const partners = get(this, 'props.data.allContentfulPartners.edges')
     const [missionInfo] = get(this, 'props.data.allContentfulMission.edges')
     const events = get(this, 'props.data.allContentfulEvents.edges')
     const teamMembers = get(this, 'props.data.allContentfulTeamMembers.edges')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [contactSection] = get(this, 'props.data.allContentfulContactSection.edges')
+
+    console.log(videos)
 
     return (
       <div>
@@ -39,20 +44,14 @@ class RootIndex extends React.Component {
         <a className="anchor" id="services"></a>
         <Services services={services}/>
 
-        {/* <Container>
-          <FocusSection focus={focusInfo.node}/>
-        </Container> */}
-
-        <Projects projects={projects}/>
+        <VideoSection 
+          videoDescriptions={videoDescription} 
+          videos={videos}
+          />
 
         <Events events={events}/>
 
         <Partners partners={partners}/>
-
-        
-        
-        {/* <a className="anchor" id="team"></a>
-        <Team teamMembers={teamMembers}/> */}
 
         <a className="anchor" id="contact"></a>
         <ContactSection contact={contactSection.node} />
@@ -107,7 +106,7 @@ export const pageQuery = graphql`
         node{
           title
           slug
-          
+
           descriptionLong {
             content {
               content {
@@ -140,6 +139,25 @@ export const pageQuery = graphql`
           icon {
             sizes(resizingBehavior: SCALE) {
               ...GatsbyContentfulSizes_withWebp
+            }
+          }
+        }
+      }
+    }
+    allContentfulVideoDescription(limit: 2){
+      edges {
+        node {
+          description
+        }
+      }
+    }
+    allContentfulVideos{
+      edges {
+        node {
+          video {
+            file {
+              url
+              contentType
             }
           }
         }
