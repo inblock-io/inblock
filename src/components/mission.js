@@ -12,7 +12,7 @@ export default ({ mission }) => (
       </div>
       
 
-      <div className="col-md-6 col-lg-5">
+      {/* <div className="col-md-6 col-lg-5">
         {mission.descriptionHalf.content.map(({ content }) => {
           if(content[0] !== undefined){
             return (
@@ -31,7 +31,7 @@ export default ({ mission }) => (
           }
           return;
           }) }
-      </div>
+      </div>*/ }
     </div>
   </Container>
 )
