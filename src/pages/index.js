@@ -39,7 +39,7 @@ class RootIndex extends React.Component {
           <Introduction introductionInfo={firstView.node} />
         </Container>
 
-        {/* <MissionSection mission={missionInfo.node}/> */}
+        <MissionSection mission={missionInfo.node}/>
 
         <a className="anchor" id="services"></a>
         <Services services={services}/>
@@ -146,7 +146,7 @@ export const pageQuery = graphql`
     }
     allContentfulVideoDescription(limit: 2){
       edges {
-        node {
+         node {
           description
         }
       }
@@ -179,22 +179,22 @@ export const pageQuery = graphql`
     allContentfulMission(limit: 1) {
       edges {
         node {
-          subtitle
+          #subtitle
           title
-          descriptionHalf {
-            content{
-              content{
-                value
-              }
-            }
-          }
-          descriptionHalf2 {
-            content{
-              content{
-                value
-              }
-            }
-          }
+          #descriptionHalf {
+          #  content{
+          #    content{
+          #      value
+          #    }
+          #  }
+          #}
+          #descriptionHalf2 {
+          #  content{
+          #    content{
+          #      value
+          #    }
+          #  }
+          #}
         }
       }
     }
