@@ -179,22 +179,22 @@ export const pageQuery = graphql`
     allContentfulMission(limit: 1) {
       edges {
         node {
-          #subtitle
+          # subtitle
           title
-          #descriptionHalf {
+          # descriptionHalf {
           #  content{
           #    content{
           #      value
           #    }
           #  }
-          #}
-          #descriptionHalf2 {
+          # }
+          # descriptionHalf2 {
           #  content{
           #    content{
           #      value
           #    }
           #  }
-          #}
+          # }
         }
       }
     }
