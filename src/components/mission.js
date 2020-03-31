@@ -14,7 +14,7 @@ export default ({ mission }) => (
 
       <div className="col-md-6 col-lg-5">
         {mission.descriptionHalf.content.map(({ content }) => {
-          if(content[0] == undefined){
+          if(content[0] !== undefined){
             return (
               <p key={content[0].value}>{content[0].value}</p>
             )
@@ -24,7 +24,7 @@ export default ({ mission }) => (
       </div> 
       <div className="col-md-6 col-lg-5 offset-lg-1">
         {mission.descriptionHalf2.content.map(({ content }) => {
-          if(content[0] == undefined){
+          if(content[0] !== undefined){
             return (
               <p key={content[0].value}>{content[0].value}</p>
             )
