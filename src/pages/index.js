@@ -101,7 +101,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulOurServices(limit:3, sort: { fields: [createdAt], order: ASC}){
+    allContentfulOurServices(limit:6, sort: { fields: [createdAt], order: ASC}){
       edges{
         node{
           title
