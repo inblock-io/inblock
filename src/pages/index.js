@@ -39,7 +39,7 @@ class RootIndex extends React.Component {
           <Introduction introductionInfo={firstView.node} />
         </Container>
 
-        {/* <MissionSection mission={missionInfo.node}/> */}
+        <MissionSection mission={missionInfo.node}/>
 
         <a className="anchor" id="services"></a>
         <Services services={services}/>
