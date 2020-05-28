@@ -101,3 +101,7 @@ __Example:__
       })
     })
 ```
+
+## Workflow of modifying existing page:
+1. DO NOT TOUCH CONTENT. It will break any build that depends on pulling content form contentful.
+2.
