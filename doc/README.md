@@ -104,4 +104,5 @@ __Example:__
 
 ## Workflow of modifying existing page:
 1. DO NOT TOUCH CONTENT. It will break any build that depends on pulling content form contentful.
-2.
+2. Modify Page by either 
+    a. removing/modifying respective graphQl subqueries (bottom of page.js) AND removing/commenting **(use {/* */})** markup (HTML-like code that is the argument of the return function) and THEN unpublishing/removing/archiving on contentful.
