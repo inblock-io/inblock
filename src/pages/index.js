@@ -44,20 +44,14 @@ class RootIndex extends React.Component {
         <a className="anchor" id="services"></a>
         <Services services={services}/>
 
-        <VideoSection 
-          videoDescriptions={videoDescription} 
-          videos={videos}
-          />
-
-        {/* <Events events={events}/> */}
-
         <Partners partners={partners}/>
 
         <a className="anchor" id="contact"></a>
         <ContactSection contact={contactSection.node} />
 
-        <Articles posts={posts} />
-        {/* <a className="twitter-timeline" data-height="600" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/inblockio?ref_src=twsrc%5Etfw">Tweets by inblockio</a>  */}
+        {/* Latest Medium Posts Component can be added here later , leave this comment here */}
+
+        {/* NEEDS TO BE MODIFIED BY CSS, TOO UGLY BY DEFAULT <a className="twitter-timeline" data-height="600" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/inblockio?ref_src=twsrc%5Etfw">Tweets by inblockio</a>  */}
         
       </div>
     )
@@ -68,25 +62,6 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit:4 ) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          heroImage {
-            sizes(maxWidth: 300, maxHeight: 200, resizingBehavior: SCALE) {
-              ...GatsbyContentfulSizes_withWebp
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
     allContentfulFirstView(limit:1){
       edges{
         node{
@@ -101,7 +76,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulOurServices(limit:6, sort: { fields: [createdAt], order: ASC}){
+    allContentfulOurServices(limit:2, sort: { fields: [createdAt], order: ASC}){
       edges{
         node{
           title
@@ -124,39 +99,6 @@ export const pageQuery = graphql`
           image{
             sizes(resizingBehavior: SCALE) {
               ...GatsbyContentfulSizes_withWebp
-            }
-          }
-        }
-      }
-    }
-    allContentfulProjects(limit: 2) {
-      edges {
-        node {
-          title
-          slug
-          description
-          icon {
-            sizes(resizingBehavior: SCALE) {
-              ...GatsbyContentfulSizes_withWebp
-            }
-          }
-        }
-      }
-    }
-    allContentfulVideoDescription(limit: 2){
-      edges {
-        node {
-          description
-        }
-      }
-    }
-    allContentfulVideos{
-      edges {
-        node {
-          video {
-            file {
-              url
-              contentType
             }
           }
         }
@@ -192,22 +134,6 @@ export const pageQuery = graphql`
               content{
                 value
               }
-            }
-          }
-        }
-      }
-    }
-    allContentfulEvents(limit: 1) {
-      edges {
-        node {
-          title
-          slug
-          description
-          date
-          price
-          image{
-            sizes(resizingBehavior: SCALE) {
-              ...GatsbyContentfulSizes_withWebp
             }
           }
         }

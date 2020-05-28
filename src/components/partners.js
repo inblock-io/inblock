@@ -6,10 +6,10 @@ export default ({ partners }) => (
   <div className={styles.partners}>
     <Container>
       <img className={styles.titleImg} src="/3d-cube.svg" alt=""/>
-      <div className="d-lg-flex">
-        <h2 className={styles.title}>Key partnerships <br className="d-none d-lg-block" />& customers</h2>
+      <div className="d-block">
+        <h2 className={styles.title}>Key partners <br className="d-none d-lg-block" /></h2>
       
-        <div className="d-flex flex-wrap align-items-center">
+        <div className="d-flex flex-wrap justify-content-center">
           {partners.map(({ node }) => {
             return (
               <a key={node.title} href={node.link} target="_blank">

@@ -12,7 +12,7 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
     return (
-      <div className="page">
+      {/*<div className="page">
         <Container>
           <Helmet title={siteTitle} />
           <h1 className="title">Blog</h1>
@@ -26,7 +26,7 @@ class BlogIndex extends React.Component {
             })}
           </div>
         </Container>
-      </div>
+      </div>*/}
     )
   }
 }

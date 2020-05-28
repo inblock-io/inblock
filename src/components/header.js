@@ -57,6 +57,12 @@ export default ({ siteDetails, menuItems, socialLinks }) => (
                       <i className="fab fa-twitter-square"></i>
                     </a>)
                 }
+                if(node.socialNetwork==="medium"){
+                  return (
+                    <a href={node.link} target="_blank">
+                      <i className="fab fa-medium"></i>
+                    </a>)
+                }
               }
             })}
           </div>

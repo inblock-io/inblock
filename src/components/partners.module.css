@@ -11,9 +11,10 @@
   font-weight: bold;
   font-size: 34px;
   margin-right: 80px;
+  padding-bottom: 1em;
 }
 .partnerLogo{
-  max-width: 100px;
+  max-width: 150px;
   margin: 5px 30px;
 }
 @media (max-width: 1240px){

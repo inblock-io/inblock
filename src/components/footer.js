@@ -37,6 +37,12 @@ export default ({ siteDetails, socialLinks, staticPages }) => (
                     <i className="fab fa-twitter-square"></i>
                   </a>)
               }
+              if(node.socialNetwork==="medium"){
+                return (
+                  <a href={node.link} target="_blank">
+                    <i className="fab fa-medium-square"></i>
+                  </a>)
+              }
             }
           })}
         </div>
@@ -48,7 +54,7 @@ export default ({ siteDetails, socialLinks, staticPages }) => (
           ))}
         </div>
         <div className="col-sm-6">
-          <p className="mb-0">Copyright © 2019. All Rights Reserved.</p>
+          <p className="mb-0">Copyright © 2020. All Rights Reserved.</p>
         </div>
       </div>
     </Container>
