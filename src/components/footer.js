@@ -40,7 +40,7 @@ export default ({ siteDetails, socialLinks, staticPages }) => (
               if(node.socialNetwork==="medium"){
                 return (
                   <a href={node.link} target="_blank">
-                    <i className="fab fa-medium-square"></i>
+                    <i className="fab fa-medium"></i>
                   </a>)
               }
             }

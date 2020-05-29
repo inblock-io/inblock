@@ -10,6 +10,9 @@
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Git Bash](https://git-scm.com/downloads)
 
+## Icons that you can use:
+- [Font Awesome](https://fontawesome.com/)
+
 ## Site structure: 
 1. Home page
 2. About

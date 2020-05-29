@@ -14,7 +14,7 @@ import Articles from '../components/articles'
 import ContactSection from '../components/contact'
 import VideoSection from '../components/videos'
 
-class RootIndex extends React.Component {
+class Tests extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const [firstView] = get(this, 'props.data.allContentfulFirstView.edges')
@@ -64,7 +64,7 @@ class RootIndex extends React.Component {
   }
 }
 
-export default RootIndex
+export default Tests
 
 export const pageQuery = graphql`
   query TestQuery {

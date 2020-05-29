@@ -12,21 +12,23 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
     return (
-      {/*<div className="page">
-        <Container>
-          <Helmet title={siteTitle} />
-          <h1 className="title">Blog</h1>
-          <div className="row">
-            {posts.map(({ node }) => {
-              return (
-                <div key={node.slug} className={`col-12 col-sm-6 col-md-4 col-lg-3 ${styles.post}`}>
-                  <ArticlePreview article={node} />
-                </div>
-              )
-            })}
-          </div>
-        </Container>
-      </div>*/}
+      <div>
+        {/*<div className="page">
+          <Container>
+            <Helmet title={siteTitle} />
+            <h1 className="title">Blog</h1>
+            <div className="row">
+              {posts.map(({ node }) => {
+                return (
+                  <div key={node.slug} className={`col-12 col-sm-6 col-md-4 col-lg-3 ${styles.post}`}>
+                    <ArticlePreview article={node} />
+                  </div>
+                )
+              })}
+            </div>
+          </Container>
+        </div>*/}
+      </div>
     )
   }
 }
