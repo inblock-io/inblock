@@ -1,0 +1,2 @@
+﻿E:\codework\inblock\node_modules
+E:\codework\inblock\.cache
