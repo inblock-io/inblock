@@ -16,6 +16,7 @@ import VideoSection from '../components/videos'
 
 class RootIndex extends React.Component {
   render() {
+    /* Gets data via graphQL queries defined at the bottom of the page */
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const [firstView] = get(this, 'props.data.allContentfulFirstView.edges')
     const services = get(this, 'props.data.allContentfulOurServices.edges')

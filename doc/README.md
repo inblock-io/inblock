@@ -109,3 +109,6 @@ __Example:__
 1. DO NOT TOUCH CONTENT. It will break any build that depends on pulling content form contentful.
 2. Modify Page by either 
     a. removing/modifying respective graphQl subqueries (bottom of page.js) AND removing/commenting **(use `{/* */}`)** markup (HTML-like code that is the argument of the return function) and THEN unpublishing/removing/archiving on contentful.
+
+## Workflow for editing links:
+The graphQL queries grab the information that is used to build the folder structure and thus hyperlinks directrly from the "slug" field in your content. If you want to change a plaintext link change the slugs in your content on contentful.
