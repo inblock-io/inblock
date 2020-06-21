@@ -62,7 +62,6 @@ export const pageQuery = graphql`
           position
           about
           email
-          facebook
           linkedin
         }
       }
