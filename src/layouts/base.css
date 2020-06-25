@@ -82,6 +82,10 @@ a:focus, button:focus{
   padding: 15px 0;
   border-bottom: 2px solid #EF5402;
 }
+.title-bg{
+  background: #EF5402;
+  padding: 30px 0;
+}
 .title{
   color: #2D2D2D;
   font-size: 34px;
