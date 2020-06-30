@@ -1,14 +1,14 @@
 .introstrategy{
-  padding-top: 180px;
+  padding-top: 90px;
 }
-.background{
+.background2{
   position: absolute;
   left: 0;
   top: 265px;
   height: 400px;
   width: 100%;
-  background: #EF5402;
-  background-color: #EF5402;
+  background: green;
+  background-color: green;
 }
 
 .title{
@@ -19,6 +19,11 @@
   text-transform: uppercase;
   color:black;
 }
+
+.fullintro_decoration_row {
+  margin: 1em 0 0 0;
+}
+
 .subtitle{
   color:white;
   font-size: 20px;
